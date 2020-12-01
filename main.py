@@ -13,11 +13,11 @@ from generate_w2v import generate_item_embeddings
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 
-ITEM_DATA_PATH = "../data/item_data.jl"
-TRAIN_DATA_PATH = "../data/train_dataset.jl"
-EVAL_DATA_PATH = "../data/test_dataset.jl"
-W2V_PATH = "../data/embeddings/meli_w2v.model"
-PREDS_PATH = "../predictions/final_preds.csv"
+ITEM_DATA_PATH = "./data/input/item_data.jl"
+TRAIN_DATA_PATH = "./data/input/train_dataset.jl"
+EVAL_DATA_PATH = "./data/input/test_dataset.jl"
+W2V_PATH = "./data/embeddings/meli_w2v.model"
+PREDS_PATH = "./predictions/final_preds.csv"
 
 def load_item_data(data_path):
 
