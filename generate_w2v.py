@@ -7,7 +7,7 @@ import gensim
 
 def load_history_data(data_path):
 
-    print("Loading history data")
+    print(f"Loading history data - {data_path}")
 
     with open(data_path) as f:
         file_data = f.read().split("\n")

@@ -13,7 +13,7 @@ from generate_w2v import generate_item_embeddings
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 
-RETRAIN_W2V = True
+RETRAIN_W2V = False
 ITEM_DATA_PATH = "./data/input/item_data.jl"
 TRAIN_DATA_PATH = "./data/input/train_dataset.jl"
 EVAL_DATA_PATH = "./data/input/test_dataset.jl"
@@ -41,7 +41,7 @@ def load_item_data(data_path):
 
 def load_history_data(data_path):
 
-    print("Loading history data")
+    print(f"Loading history data - {data_path}")
 
     with open(data_path) as f:
         file_data = f.read().split("\n")
@@ -55,7 +55,7 @@ def load_history_data(data_path):
     return(out)
 
 
-def get_item_popularity(train_data):
+def get_item_popularity(train_data, item_data):
 
     print("Getting item popularity")
 
@@ -82,7 +82,7 @@ def get_item_popularity(train_data):
     return pop_in_domain, pop_general, default_preds
 
 
-def predict_baseline(data_to_predict, pop_in_domain):
+def predict_baseline(data_to_predict, pop_in_domain, item_data):
 
     print("Getting baseline preds")
 
@@ -235,7 +235,7 @@ def complete_preds(predictions, default_preds, item_data):
     return completed
 
 
-def _remove_used(predictions):
+def _remove_used(predictions, item_data):
 
     no_used_preds = []
     for p in predictions:
@@ -299,7 +299,7 @@ def make_submit_file(predictions, filename):
         f.write(predictions)
 
 
-def make_preds_vote(base_items, base_domain, bow_item, bow_search, w2v_item):
+def make_preds_vote(base_items, base_domain, bow_item, bow_search, w2v_item, item_data):
     
     print("Making differents algorithms vote")    
 
@@ -372,19 +372,19 @@ def make_final_preds(train_data_path, eval_data_path,
     w2v_item_preds = pred_w2v(data_to_pred, 70)
 
     # Make baseline predictions
-    pop_in_domain, pop_general, default_preds = get_item_popularity(train_data)
     train_data = load_history_data(train_data_path)
-    base_looked, base_domain = predict_baseline(data_to_pred, pop_in_domain, pop_general)
+    pop_in_domain, pop_general, default_preds = get_item_popularity(train_data, item_data)
+    base_looked, base_domain = predict_baseline(data_to_pred, pop_in_domain, item_data)
     gc.collect()
 
     # Make tf-idf preds with items
     bow_item_predictions = bow_preds(train_data, data_to_pred, "item", 110)
-    bow_item_predictions = _remove_used(bow_item_predictions)
+    bow_item_predictions = _remove_used(bow_item_predictions, item_data)
     gc.collect()
 
     # Make tf-idf preds with searches
     bow_search_predictions = bow_preds(train_data, data_to_pred, "search", 150)
-    bow_search_predictions = _remove_used(bow_search_predictions)
+    bow_search_predictions = _remove_used(bow_search_predictions, item_data)
     gc.collect()
 
     # Delete unnecesary data
@@ -396,7 +396,8 @@ def make_final_preds(train_data_path, eval_data_path,
                                   base_domain,
                                   [e[:103] for e in bow_item_predictions],
                                   [e[:144] for e in bow_search_predictions],
-                                  [e[:65] for e in w2v_item_preds])
+                                  [e[:65] for e in w2v_item_preds],
+                                  item_data)
 
     # Fill non-length 10 predictions
     final_preds = complete_preds(final_preds, default_preds, item_data)
