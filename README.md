@@ -13,6 +13,7 @@ Instructions to run this code:
 
 
 Notes:
+
 <sup>1</sup> The data can be donwloaded from: https://ml-challenge.mercadolibre.com/downloads
 
 <sup>2</sup> This script requires 32 GB of RAM to run.
