@@ -1,6 +1,5 @@
 import pickle
 import json
-import re
 import tqdm
 import gc
 from collections import Counter
