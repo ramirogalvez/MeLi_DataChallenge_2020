@@ -1,0 +1,4 @@
+/data/input/*.jl
+/data/input/*.csv
+/data/embeddings/*.npy
+/data/embeddings/*.model
