@@ -15,4 +15,4 @@ Instructions to run this code:
 
 <sup>1</sup> The data can be donwloaded from: https://ml-challenge.mercadolibre.com/downloads
 
-<sup>2</sup> This script requires GB of RAM to run.
+<sup>2</sup> This script requires 32 GB of RAM to run.
