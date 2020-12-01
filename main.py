@@ -13,7 +13,7 @@ from generate_w2v import generate_item_embeddings
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 
-RETRAIN_W2V = False
+RETRAIN_W2V = True
 ITEM_DATA_PATH = "./data/input/item_data.jl"
 TRAIN_DATA_PATH = "./data/input/train_dataset.jl"
 EVAL_DATA_PATH = "./data/input/test_dataset.jl"
