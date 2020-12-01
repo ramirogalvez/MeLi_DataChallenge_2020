@@ -13,11 +13,13 @@ from generate_w2v import generate_item_embeddings
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 
 
+RETRAIN_W2V = True
 ITEM_DATA_PATH = "./data/input/item_data.jl"
 TRAIN_DATA_PATH = "./data/input/train_dataset.jl"
 EVAL_DATA_PATH = "./data/input/test_dataset.jl"
 W2V_PATH = "./data/embeddings/meli_w2v.model"
 PREDS_PATH = "./predictions/final_preds.csv"
+
 
 def load_item_data(data_path):
 
@@ -403,13 +405,22 @@ def make_final_preds(train_data_path, eval_data_path,
     make_submit_file(final_preds, preds_path)
 
 
+def main(train_data_path, eval_data_path, w2v_path,
+         item_data_path, preds_path, retrain_w2v):
+
+    if retrain_w2v:
+        generate_item_embeddings(train_data_path,
+                                 eval_data_path,
+                                 w2v_path)
+
+    make_final_preds(train_data_path,
+                     eval_data_path,
+                     item_data_path,
+                     preds_path)
+
+
 if __name__ == "__main__":
 
-    generate_item_embeddings(TRAIN_DATA_PATH,
-                             EVAL_DATA_PATH,
-                             W2V_PATH)
-
-    make_final_preds(TRAIN_DATA_PATH,
-                     EVAL_DATA_PATH,
-                     ITEM_DATA_PATH,
-                     PREDS_PATH)
+    main(TRAIN_DATA_PATH, EVAL_DATA_PATH,
+         W2V_PATH, ITEM_DATA_PATH,
+         PREDS_PATH, RETRAIN_W2V)

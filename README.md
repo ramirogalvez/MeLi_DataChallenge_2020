@@ -9,4 +9,4 @@ Instructions to run this code:
 	- test_dataset.jl
 	- train_dataset.jl
 
-2. Then simply run the main.py script.
+2. Then simply run the "main.py" script.
