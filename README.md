@@ -4,9 +4,15 @@
 
 Instructions to run this code:
 
-1. Place in the "./data/input" folder the following files:
+1. Place in the "./data/input" folder the following files:*
 	- item_data.jl
 	- test_dataset.jl
 	- train_dataset.jl
 
-2. Then simply run the "main.py" script.
+2. Then simply run the "main.py" script.**
+
+
+
+* The data can be donwloaded from: https://ml-challenge.mercadolibre.com/downloads
+
+** This script requires GB of RAM to run.
