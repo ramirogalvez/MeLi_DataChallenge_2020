@@ -1,5 +1,5 @@
 data/input/*.jl
-data/input/*.npy
-data/input/*.model
+data/embeddings/*.npy
+data/embeddings/*.model
 data/predictions/*.csv
 __pycache__

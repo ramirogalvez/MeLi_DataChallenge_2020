@@ -1,6 +1,6 @@
-# MeLi_DataChallenge_2020
+# MeLi DataChallenge 2020
 
-My solution for the 2020 MeLi DataChallenge Competition
+## My solution to the 2020 MeLi DataChallenge Competition
 
 Instructions to run this code:
 
