@@ -388,7 +388,7 @@ def make_final_preds(train_data_path, eval_data_path,
     del train_data, data_to_pred
     gc.collect()
 
-    # Make differents predictions vote
+    # Make different predictions vote
     final_preds = make_preds_vote(base_looked,
                                   base_domain,
                                   [e[:103] for e in bow_item_predictions],
