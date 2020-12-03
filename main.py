@@ -298,7 +298,7 @@ def make_submit_file(predictions, filename):
 
 def make_preds_vote(base_items, base_domain, bow_item, bow_search, w2v_item, item_data):
     
-    print("Making differents algorithms vote")    
+    print("Making different algorithms vote")    
 
     all_preds = zip(base_items, base_domain, bow_item, bow_search, w2v_item)
 
