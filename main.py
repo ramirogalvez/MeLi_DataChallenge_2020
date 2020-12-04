@@ -310,7 +310,6 @@ def make_preds_vote(base_items, base_domain, bow_item, bow_search, w2v_item, ite
         bs_look = [e for e in bs_look if e in set_bs_dom]
         bow_it = [e for e in bow_it if e in set_bs_dom]
         w2v_it = [e for e in w2v_it if e in set_bs_dom]
-        if set_bs_dom: w2v_it = [e for e in w2v_it if e in set_bs_dom]
 
         freqs = Counter()
         for i, e in enumerate(bs_dom):
