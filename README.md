@@ -1,6 +1,6 @@
 # MeLi DataChallenge 2020
 
-## My solution to the 2020 MeLi DataChallenge
+## 2<sup>nd</sup> place solution for the MeLi Challenge 2019
 
 Instructions to run this code:
 
@@ -11,6 +11,7 @@ Instructions to run this code:
 
 2. Then simply run the "main.py" script.<sup>2, 3</sup>
 
+The model consists of five simple recommendation algorithms which are combined using a tailored strategy.
 
 Notes:
 
