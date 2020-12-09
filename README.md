@@ -1,6 +1,6 @@
 # MeLi DataChallenge 2020
 
-## 2<sup>nd</sup> place solution for the MeLi Challenge 2019
+## 2<sup>nd</sup> place solution for the MeLi Challenge 2020
 
 Instructions to run this code:
 
