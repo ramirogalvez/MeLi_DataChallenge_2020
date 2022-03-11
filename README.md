@@ -15,7 +15,7 @@ The model consists of five simple recommendation algorithms which are combined u
 
 Notes:
 
-<sup>1</sup> The data can be donwloaded from: https://ml-challenge.mercadolibre.com/downloads
+<sup>1</sup> The data can be downloaded from: https://ml-challenge.mercadolibre.com/downloads
 
 <sup>2</sup> This script requires more or less 24 GB of RAM to run.
 
